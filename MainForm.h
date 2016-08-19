@@ -22,18 +22,20 @@ __published:	// IDE-managed Components
         TGroupBox *GroupBoxSwitchOutputs;
         TLabel *LabelSrChanA;
         TUpDown *UpDownSrChanA;
-        TEdit *EditSrChanA;
         TLabel *LabelSrChanB;
         TEdit *EditSrChanB;
         TUpDown *UpDownSrChanB;
         TProgressBar *ProgressBar1;
         TGroupBox *GroupBoxSave;
         TEdit *EditFileName;
-        TLabel *LabelFilePath;
-        TEdit *Edit2;
-        TLabel *LabelFileName;
         TButton *ButtonSaveAs;
-        TMemo *Memo1;
+        TMemo *MemoLog;
+        TEdit *EditSrChanA;
+    TLabel *Label1;
+        void __fastcall ButtonSaveAsClick(TObject *Sender);
+    void __fastcall SaveDialog1SelectionChange(TObject *Sender);
+    void __fastcall ButtonStartClick(TObject *Sender);
+    void __fastcall ButtonStopClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TForm1(TComponent* Owner);
