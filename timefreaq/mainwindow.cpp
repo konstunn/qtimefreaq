@@ -43,6 +43,8 @@ void MainWindow::timer1_work()
 
     qDebug("timer is running3");
     QThread::msleep(1);
+
+    ui->progressBar->stepUp();
 }
 
 MainWindow::~MainWindow()
@@ -60,4 +62,6 @@ void MainWindow::on_stopButton_clicked()
 {
     timer1->stop();
     qDebug("timer stopped");
+
+    ui->progressBar->reset();
 }
