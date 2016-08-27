@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QThread>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -15,9 +16,37 @@ MainWindow::MainWindow(QWidget *parent) :
         item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
         item->setCheckState(Qt::Checked);
     }
+
+    timer1 = new QTimer(this);
+    timer1->setSingleShot(false);
+    connect(timer1, SIGNAL(timeout()), this, SLOT(timer1_work()));
+}
+
+void MainWindow::timer1_work()
+{
+    qDebug("timer is running1");
+    QThread::msleep(1);
+
+    qDebug("timer is running2");
+    QThread::msleep(1);
+
+    qDebug("timer is running3");
+    QThread::msleep(1);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::on_startButton_clicked()
+{
+    timer1->start(1);
+    qDebug("timer started");
+}
+
+void MainWindow::on_stopButton_clicked()
+{
+    timer1->stop();
+    qDebug("timer stopped");
 }
