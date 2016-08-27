@@ -83,7 +83,7 @@
     </item>
     <item row="0" column="2" colspan="3">
      <layout class="QGridLayout" name="gridLayout_3">
-      <item row="0" column="0" alignment="Qt::AlignTop">
+      <item row="0" column="0">
        <widget class="QLabel" name="label_4">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
@@ -94,22 +94,8 @@
         <property name="text">
          <string>Выходной канал коммутатора</string>
         </property>
-       </widget>
-      </item>
-      <item row="2" column="0" alignment="Qt::AlignHCenter">
-       <widget class="QSpinBox" name="spinBox">
-        <property name="minimum">
-         <number>1</number>
-        </property>
-        <property name="maximum">
-         <number>5</number>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0">
-       <widget class="Line" name="line_5">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
         </property>
        </widget>
       </item>
@@ -128,6 +114,61 @@
          </size>
         </property>
        </spacer>
+      </item>
+      <item row="0" column="1">
+       <widget class="QSpinBox" name="spinBox">
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>5</number>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="2">
+       <widget class="Line" name="line_5">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" alignment="Qt::AlignRight">
+       <widget class="QLabel" name="label_5">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>Порт измерителя SR620</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0" alignment="Qt::AlignRight">
+       <widget class="QLabel" name="label_6">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>Порт коммутатора VCH-603</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QComboBox" name="SrComPortComboBox"/>
+      </item>
+      <item row="3" column="1">
+       <widget class="QComboBox" name="VchComPortComboBox"/>
       </item>
      </layout>
     </item>
@@ -239,7 +280,7 @@
        <number>10</number>
       </property>
       <item row="4" column="0">
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QPushButton" name="startButton">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -252,7 +293,7 @@
        </widget>
       </item>
       <item row="3" column="0" colspan="4">
-       <widget class="QProgressBar" name="progressBar">
+       <widget class="MyProgressBar" name="progressBar">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -296,7 +337,7 @@
        </spacer>
       </item>
       <item row="4" column="2">
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="stopButton">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -333,13 +374,20 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>494</width>
+     <width>487</width>
      <height>25</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MyProgressBar</class>
+   <extends>QProgressBar</extends>
+   <header>myprogressbar.h</header>
+  </customwidget>
+ </customwidgets>
  <tabstops>
   <tabstop>outChannelsListWidget</tabstop>
   <tabstop>lineEdit</tabstop>
