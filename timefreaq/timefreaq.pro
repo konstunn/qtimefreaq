@@ -13,8 +13,10 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    myprogressbar.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    myprogressbar.h
 
 FORMS    += mainwindow.ui
