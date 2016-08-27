@@ -54,12 +54,18 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_startButton_clicked()
 {
+    mythread.start();
+    qDebug("thread started");
+
     timer1->start(1);
     qDebug("timer started");
 }
 
 void MainWindow::on_stopButton_clicked()
 {
+    mythread.terminate();
+    qDebug("thread terminated");
+
     timer1->stop();
     qDebug("timer stopped");
 

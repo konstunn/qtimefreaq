@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QTimer>
+#include "mythread.h"
 
 namespace Ui {
 class MainWindow;
@@ -24,6 +25,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QTimer *timer1;
+    MyThread mythread;
 };
 
 #endif // MAINWINDOW_H
