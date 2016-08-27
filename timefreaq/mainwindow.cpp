@@ -2,6 +2,9 @@
 #include "ui_mainwindow.h"
 #include <QThread>
 
+#include <QSerialPort>
+#include <QSerialPortInfo>
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -20,6 +23,14 @@ MainWindow::MainWindow(QWidget *parent) :
     timer1 = new QTimer(this);
     timer1->setSingleShot(false);
     connect(timer1, SIGNAL(timeout()), this, SLOT(timer1_work()));
+
+    QList<QSerialPortInfo> list = QSerialPortInfo::availablePorts();
+    for (int i = 0; i < list.count(); ++i) {
+        QSerialPortInfo spi = list.at(i);
+        qDebug(spi.portName().toStdString().c_str());
+        ui->SrComPortComboBox->addItem(spi.portName());
+        ui->VchComPortComboBox->addItem(spi.portName());
+    }
 }
 
 void MainWindow::timer1_work()
